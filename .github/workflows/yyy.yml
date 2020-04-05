@@ -10,8 +10,11 @@
 name: OpenWrt-CI
 
 on:
-  schedule:
-    - cron: 0 20 * * *
+  push:
+    branches: 
+      - master
+ # schedule:
+  #  - cron: 0 20 * * *
 
 jobs:
 
@@ -56,7 +59,7 @@ jobs:
 
       - name: Generate configuration file
         env:
-        CONFIG_FILE: 'r619ac.config'
+           CONFIG_FILE: 'r619ac.config'
         run: make defconfig
 
       - name: Make download
